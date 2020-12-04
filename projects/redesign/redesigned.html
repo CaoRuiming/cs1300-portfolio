@@ -1,0 +1,1175 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>CSCI 1430: Introduction to Computer Vision</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/jht.css">
+
+  <script src="js/hiddenemail.js"></script>
+  
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-content">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#coursedescription">Course</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#officehours">Hours</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#schedule">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#generalpolicy">General Policy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#feedback">Feedback</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#acknowledgements">Acknowledgements</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home">
+      <header>
+        <h1>CSCI 1430: Introduction to Computer Vision</h1>
+        <h2>Spring 2020, MW 15:00 to 16:20, MacMillan 117</h2>
+      </header>
+
+      <div class="center-contents">
+        <img
+          class="teaserimage"
+          alt="Computer Vision, art by HarperCollins / Clare Skeats / James Tompkin"
+          src="CSCI1430_EyeRobot_Credited_2020.png">
+      </div>
+  
+      <hr>
+      <p class="hyphenate">
+        Instructor: <a href="http://www.jamestompkin.com/">James Tompkin</a>
+        <br>
+        <br>
+        HTAs: Isa Milefchik, George Lee
+        <br>
+        <br>
+        TAs: Joy Zheng, Eliot Laidlaw, Neev Parikh, Trevor Houchens, Katie Friis,
+        Raymond Cao, Isabella Ting, Andrew Park, Qiao Jiang, Mary Dong, Katie Scholl,
+        Jason Senthil, Melis Gokalp, Michael Snower, Yang Jiao, Yuting Liu, Cong Huang, Kyle Cui,
+        Nine Prasersup, Top Piriyakulkij, Eleanor Tursman, Claire Chen, Josh Roy,
+        Megan Gessner, Yang Zhang
+        <br>
+        <br>
+        ETAs: Katie Friis, Isabella Ting
+      </p>
+  
+      <!--<h2><em>Waitlist/overrides:</em> Request one on cab.brown.edu - no need to email James!</h2>-->
+  
+      <hr>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://piazza.com/brown/spring2019/csci1430">Piazza</a>&mdash;your first stop for questions and
+          clarifications. Piazza will be staffed at specific times, when a member of the team will be answering
+          questions (existing and new). At other times, please pull together as a class and help each other, and we'll
+          help soon.</li>
+        <li><em>
+            <script type="text/javascript">hiddenemail('lists.brown.edu', 'cs1430tas')</script><noscript>Enable Javascript
+              to see my email address</noscript></em>&mdash;your second stop for less typical questions.</li>
+      </ul>
+    </section>
+
+    <section id="coursedescription">
+      <h2>Course Description</h2>
+      <p class="hyphenate">
+        This course provides an introduction to computer vision, including fundamentals of image formation, camera
+        imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification,
+        scene understanding, and deep learning with neural networks. We will develop basic methods for applications that
+        include finding known models in images, depth recovery from stereo, camera calibration, image stabilization,
+        automated alignment, tracking, boundary detection, and recognition. We will develop the intuitions and
+        mathematics of the methods in class, and then learn about the difference between theory and practice in
+        projects.
+      </p>
+      <p class="hyphenate">
+        This course is based upon <a href="http://www.cc.gatech.edu/~hays/">James Hays'</a> computer vision course,
+        previously taught at Brown as <a href="http://cs.brown.edu/courses/cs143/2013">CS143</a>, and currently taught
+        at Georgia Tech as <a href="http://www.cc.gatech.edu/~hays/compvision/">CS 4476</a>. Significant thanks to him
+        and his staff, across the years, for all their hard work.
+      </p>
+  
+  
+      <h3>Learning Objectives</h3>
+      Upon completion of this course, students will:
+      <ol>
+        <li>Be familiar with both the theoretical and practical aspects of computing with images;</li>
+        <li>Have described the foundation of image formation, measurement, and analysis;</li>
+        <li>Have implemented common methods for robust image matching and alignment;</li>
+        <li>Understand the geometric relationships between 2D images and the 3D world;</li>
+        <li>Have gained exposure to object and scene recognition and categorization from images;</li>
+        <li>Grasp the principles of state-of-the-art deep neural networks; and</li>
+        <li>Developed the practical skills necessary to build computer vision applications.</li>
+      </ol>
+  
+  
+      <h3>Prerequisites</h3>
+      <p class="hyphenate">
+        No prior experience with computer vision is assumed, although previous knowledge of visual computing or signal
+        processing will be helpful (e.g., CSCI 1230). The following skills are necessary for this class:
+      </p>
+  
+      <ul class="hyphenate">
+        <li>Math: Linear algebra, vector calculus, and probability. Linear algebra is the most important and students
+          who have not taken a linear algebra course have struggled in the past.</li>
+        <li>Data structures: You will write code that represents images as feature and geometric constructions.</li>
+        <li>Programming: A good working knowledge. All lecture code and project starter code will be Python, and the TAs
+          will support Python questions. If you have never used Python, that is OK and we will help you.</li>
+      </ul>
+  
+  
+      <h3>Time Commitment</h3>
+      <table class="table table-striped table-hover">
+        <caption>Table of estimated time commitments for CSCI 1430.</caption>
+        <tbody>
+          <tr>
+            <th>Task</th>
+            <th>Hours</th>
+          </tr>
+          <tr>
+            <td>In class</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>Projects:</td>
+            <td>20 &times;6</td>
+          <tr>
+            <td>Office Hours/Piazza:&nbsp;&nbsp;&nbsp;</td>
+            <td>20</td>
+          <tr class="totalrow">
+            <td>Total:</td>
+            <td>180</td>
+          </tr>
+        </tbody>
+      </table>
+  
+  
+      <h3>Capstone</h3>
+      <p class="hyphenate">
+        This class can be taken as a capstone. You will need to complete 10 points of extra credit in each of the
+        projects, including a commensurate amount of work in the final project.
+      </p>
+  
+  
+      <h3>Reading References</h3>
+      <p class="hyphenate">
+        There is no requirement to buy a textbook. The goal of the course is to be self contained, but sections from
+        three textbooks will be suggested for more formalization and information. Two of these books are available free
+        online, with the third available online through Brown's library.</p>
+      <ol>
+        <li><a href="https://search.library.brown.edu/catalog/b7269614">Concise Computer Vision</a> by <a
+            href="https://ccv.wordpress.fos.auckland.ac.nz/the-author/">Reinhard Klette</a></li>
+        <li><a href="http://szeliski.org/Book/">Computer Vision: Algorithms and Applications</a> by <a
+            href="http://szeliski.org/RichardSzeliski.htm">Richard Szeliski</a>.</li>
+        <li><a href="http://www.deeplearningbook.org/">Deep Learning</a>, by Goodfellow, Bengio, and Courville.</li>
+      </ol>
+  
+      <p>
+        Further reading material:
+      </p>
+      <ul>
+        <li>GitHub</li>
+        <ul>
+          <li><a
+              href="https://docs.google.com/document/d/1Hli-42Tv91tnghbxW4Pn44aGGeV9MMb4NgIktg9jN-U/edit?usp=sharing">GitHub
+              Guide</a>, a guide about Git, GitHub, GitHub Desktop, and GitHub Classroom</li>
+          <li>Git Overview: <a href="https://cs.brown.edu/courses/csci0060/assets/slides/slides12.pdf">link 1</a>, <a
+              href="https://cs.brown.edu/courses/csci0060/assets/slides/slides13.pdf">link 2</a>. A lecture slides
+            on git from the class CSCI 0060 Practical System Skills; read for a comprehensive overview on what git
+            is!</li>
+        </ul>
+        <li>Python Numpy</li>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=xECXZ3tyONo">Python Programmer&mdash;Numpy in 5 minutes
+              [YouTube]</a></li>
+          <li><a href="https://engineering.ucsb.edu/~shell/che210d/numpy.pdf">UCSB Numpy Tutorial</a></li>
+          <li><a href="https://stackabuse.com/numpy-tutorial-a-simple-example-based-guide/">Numpy Tutorial: A Simple
+              Example-based Guide</a></li>
+        </ul>
+        <li>General terminology:</li>
+        <ul>
+          <li><a href="https://search.library.brown.edu/catalog/b7121510">Dictionary of Computer Vision and Image
+              Processing</a>, by Fisher et al. If you find a word or concept that you do not understand, then
+            please consider looking here. Note: Full text is available in 'Online Resources' section.</li>
+        </ul>
+        <li>Linear Algebra:</li>
+        <ul>
+          <li><a href="http://immersivemath.com/ila/index.html">Immersive Linear Algebra</a>, by J. Ström, K. Åström,
+            and T. Akenine-Möller. <em>Interactive visualizations!</em></li>
+          <li>3 Blue 1 Brown&mdash;<a href="http://www.3blue1brown.com/">http://www.3blue1brown.com/</a> | Geometric
+            interpretation&mdash;<a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Linear
+              Algebra
+              playlist</a></li>
+          <li>Stanford CS229 review&mdash;<a
+              href="http://cs229.stanford.edu/section/cs229-linalg.pdf">http://cs229.stanford.edu/section/cs229-linalg.pdf</a>
+          </li>
+        </ul>
+        <li>Probability:</li>
+        <ul>
+          <li>Seeing Theory&mdash;<a
+              href="http://students.brown.edu/seeing-theory/">http://students.brown.edu/seeing-theory/</a></li>
+          <li>Magnusson&mdash;Bayesian Inference&mdash;<a
+              href="http://rpsychologist.com/d3/bayes/">http://rpsychologist.com/d3/bayes/</a></li>
+        </ul>
+        <li>Image processing:</li>
+        <ul>
+          <li>Powell&mdash;Kernels&mdash;<a
+              href="http://setosa.io/ev/image-kernels/">http://setosa.io/ev/image-kernels/</a></li>
+        </ul>
+        <li>Neural Networks and Machine Learning:</li>
+        <ul>
+          <li>Michael Nielson&mdash;<a
+              href="http://neuralnetworksanddeeplearning.com/">http://neuralnetworksanddeeplearning.com/</a></li>
+          <li>Chris Olah&mdash;<a href="http://colah.github.io/">http://colah.github.io/</a></li>
+          <li>Distill&mdash;<a href="http://distill.pub/">http://distill.pub/</a></li>
+          <li>Wei&mdash;practical advice&mdash;<a
+              href="http://lamda.nju.edu.cn/weixs/project/CNNTricks/CNNTricks.html">http://lamda.nju.edu.cn/weixs/project/CNNTricks/CNNTricks.html</a>
+          </li>
+        </ul>
+        <li>Multi-view Geometry:</li>
+        <ul>
+          <li>Hartley and Zisserman&mdash;<a href"http://www.robots.ox.ac.uk/~vgg/hzbook/">Multiple View Geometry in
+              Computer Vision</a> or <a href="https://search.library.brown.edu/catalog/b7188936">online @ Brown
+              Library</a></li>
+        </ul>
+      </ul>
+  
+      <h3>Software</h3>
+      <p class="hyphenate">
+        We will use Python 3 for the course, and we will support editing and debugging Python through <a
+          href="https://code.visualstudio.com">Visual Studio Code</a> (vscode). Project 0 includes a tutorial for how
+        to set up a Python environment on your personal computer, or use the CS department machines.
+      </p>
+      <p class="hyphenate">
+        <strong>Versions:</strong>(Spring 2020) Our Python virtual environment uses Python 3.7.3. Our autograder uses
+        the same virtual environment. <em>Python 2.7 is not supported by the class.</em>
+      </p>
+    </section>
+
+    <section id="officehours">
+      <h2>Office/Piazza Hours</h2>
+  
+      <p class="hyphenate">
+        We will use <a href="https://signmeup.cs.brown.edu/">Brown's SignMeUp (here)</a> to arrange TA office hour and
+        Zoom for remote hours.
+      </p>
+  
+      <p class="hyphenate">
+        <strong>Piazza hours protocol</strong>
+      </p>
+  
+      <ol type="1" class="hyphenate">
+        <li>
+          During hours each TA will have a join link on Signmeup, if you join a link, you will be automatically placed
+          in a waiting room, but please don’t join any TA’s link, wait until you are claimed because each TA will have
+          a different link.
+        </li>
+        <li>
+          Once you have been claimed in Signmeup, you will be admitted to the call with a TA and off of the waiting
+          list, if we do not see you in the waiting list queue to admit you, you will be marked missing, please make
+          sure you join the Zoom link of the TA who claimed you.
+        </li>
+        <li>
+          If you are marked missing, join the waiting room of any TA and if they see you, you will be unmarked
+          missing, but please make sure you monitor Signmeup and if you are claimed by a TA not in the meeting room
+          you are in, make sure to switch to the correct meeting link.
+        </li>
+      </ol>
+  
+      <p class="hyphenate">James' office hour (Tues 1pm) appointment slot signups are <a
+          href="https://calendar.google.com/calendar/selfsched?sstoken=UU5QLXdiZVNKOE4xfGRlZmF1bHR8NmQ1ZjQxMzhkMzc2YWY4YjE0YWQ2OGIwNDNkNGM3OTY">here</a>.
+      </p>
+  
+      <div class="iframe-container">
+        <div class="not-mobile">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23fcfcfc&amp;src=brown.edu_vp3ih1m6ikuclu0svv4ovrse6k%40group.calendar.google.com&ctz=America%2FNew_York"
+            width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="mobile">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23fcfcfc&amp;src=brown.edu_vp3ih1m6ikuclu0svv4ovrse6k%40group.calendar.google.com&ctz=America%2FNew_York"
+            width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="hyphenate">
+        Projects are released every ~two weeks, with deliverables due each week at <em>Friday at 9pm</em>. Each project
+        has ~two parts: written, and code. You have one week to complete the written part, and two weeks to complete the
+        code part.
+      </p>
+      <p>
+        Hand-in for both parts is electronic via <a href="http://www.gradescope.com/">Gradescope</a>.
+      </p>
+      <p class="hyphenate">
+        Projects 1, 2, 3, 4 and 5 must be completed in Python. Project 6 as a final project presents a free choice.
+      </p>
+  
+      <table class="table table-striped table-hover">
+        <caption>Table of CSCI 1430 Projects.</caption>
+        <tbody>
+          <tr>
+            <th>Projects</th>
+            <th><a href="http://www.gradescope.com/">Gradescope</a> Hand in</th>
+          </tr>
+          <tr>
+            <td>0. Python Primer</td>
+            <td>Questions: <time datetime="2020-01-24T21:00:00">24th Jan. 21:00</time></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://docs.google.com/document/d/1Hli-42Tv91tnghbxW4Pn44aGGeV9MMb4NgIktg9jN-U/edit?usp=sharing">
+                GitHub Guide</a> |
+              <a href="https://classroom.github.com/a/JzlxBBWy">GitHub Classroom Assignment Link</a>
+            </td>
+            <td>
+  
+            </td>
+          </tr>
+          <tr>
+            <td><a href="./proj1/">1. Image Filtering and Hybrid Images</a></td>
+            <!--<td>1. Image Filtering and Hybrid Images</td> -->
+            <td>Questions + code: <time datetime="2020-01-31T21:00:00">31st Jan. 21:00</time></td>
+          </tr>
+          <tr>
+            <td><a href="./proj2/">2. Local Feature Matching</a></td>
+            <!-- <td>2. Local Feature Matching</td> -->
+            <td>Questions: <time datetime="2020-02-07T21:00:00">14th Feb. 21:00</time>; Code: <time
+                datetime="2020-02-14T21:00:00"></time>14th Feb. 21:00</td>
+          </tr>
+          <tr>
+            <td><a href="./proj3/">3. Scene Recognition with Bag of Words</a></td>
+            <!-- <td>3. Scene Recognition with Bag of Words</td> -->
+            <td>Questions: <time datetime="2020-02-21T21:00:00">21st Feb. 21:00</time>; Code: <time
+                datetime="2020-02-28T21:00:00">28th Feb. 21:00</time></td>
+          </tr>
+          <tr>
+            <td><a href="./proj4/">4. Convolutional Neural Nets</a></td>
+            <!-- <td>4. Convolutional Neural Nets</td> -->
+            <td>Questions: <time datetime="2020-03-13T21:00:00">13th Mar. 21:00</time>; Code: <time
+                datetime="2020-03-20T21:00:00">20th Mar. 21:00</time></td>
+          </tr>
+          <tr>
+            <td><a href="./proj5/">5. Camera Calibration and Fundamental Matrix Estimation</a></td>
+            <!--<td>5. Camera Calibration and Fundamental Matrix Estimation</td>-->
+            <!--<td>Questions + code: <time datetime="2020-04-10T21:00:00">10th Apr. 21:00</time></td>-->
+            <td>Questions + code: Please refer to Gradescope. </td>
+          </tr>
+          <tr>
+            <td><a href="./proj6/">6. Final Group Project</a></td>
+            <!-- <td>6. Final Group Project</td> -->
+            <td>
+              Team + proposal: <time datetime="2020-04-10T21:00:00">10th Apr. 21:00</time> <br>
+              Progress report 1: <time datetime="2020-04-17T21:00:00">17th Apr. 21:00</time> <br>
+              Progress report 2: <time datetime="2020-04-24T21:00:00">24th Apr. 21:00</time> <br>
+              Presentation: <time datetime="2020-05-04T15:00:00">4th May 15:00</time> <br>
+              Final submission: <time datetime="2020-05-08T21:00:00">8th May 21:00</time>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    <h3>Grading</h3>
+      <p class="hyphenate">
+        Grading is A >= 90, B >= 80, C >= 70, with no curve, and with rounding to the nearest integer. Your final grade
+        will be 100% from 7 projects. All projects are graded. We leave ourselves a little flexibility to make minor
+        adjustments. Say, if one project ends up being a little more difficult, then we can tweak that project to be
+        less significant in your final grade.
+      </p>
+  
+      <table class="table table-striped table-hover">
+        <caption>Course grading broken down by project.</caption>
+        <tbody>
+          <tr>
+            <th>Project</th>
+            <th>Percent</th>
+          </tr>
+          <td>0</td>
+          <td>2%</td>
+          <tr>
+            <td>1&ndash;5</td>
+            <td>~14.6%</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>~25%</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <h3>Late Submissions and Late Days</h3>
+      <p class="hyphenate">
+        Our projects are split into two parts: questions and code. You will lose 10% from the total possible marks of
+        each project part for each day (24 hours) that it is late. Over the course, we give you free late days <em>for
+          each</em> project part: <em>three question late days</em> and <em>three code late days</em>.
+      </p>
+      <p class="hyphenate">
+        These late days will not be reflected in the initial grade reports for your assignment, but they will be
+        factored into your final grade at the end of the semester.
+      </p>
+      <p class="hyphenate">
+        Late days cover unexpected clustering of due dates, travel commitments, interviews, hackathons, etc. <em>Please
+          do not ask for extensions to due dates</em>&mdash;we give you a pool of late days to manage yourself.
+      </p>
+      <p class="hyphenate">
+        For sickness and other issues of wellbeing, please obtain a note from health services and we will accommodate.
+      </p>
+    </section>
+
+
+    <!-- <a name="videocapture"></a> -->
+    <h3 id="videocapture">Video Lecture Capture</h3>
+    <p class="hyphenate">
+      Please look <a
+        href="https://brown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22c92eda7a-d29e-4177-aec7-ab4300efbb05%22">here
+        for lecture capture</a> of the class sessions via video (Brown CSCI 1430 course registration required).
+    </p>
+
+    <section id="schedule">
+      <h2>Tentative Schedule</h2>
+      <table class="schedule table-hover">
+        <caption>Table of tentative lecutre schedule for CSCI 1430.</caption>
+        <thead>
+          <tr>
+            <th colspan="3">Date</th>
+            <th>Topic</th>
+            <th>Slides</th>
+            <th>More info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="schedulesection" colspan="7">Image Formation and Filtering</td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td>22</td>
+            <td>Jan</td>
+            <td>Introduction to Computer Vision</td>
+            <td><a href="./lectures/2020Spring_01_Introduction.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_01_Introduction.pdf">PDF</a></td>
+            <td>Szeliski 1</td>
+          </tr>
+  
+          <!-- <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>GitHub GearUp Slides</td>
+      <td><a href="https://docs.google.com/presentation/d/1Ni4typJdy_dTN50GYnDoFw-u_nJc4aCb_hey39Z1-Rw/edit?usp=sharing">Google Slides</a> </a></td>
+      <td><a href="https://docs.google.com/document/d/1Hli-42Tv91tnghbxW4Pn44aGGeV9MMb4NgIktg9jN-U/edit?usp=sharing">GitHub Guide</a> </a></td>
+      </tr> -->
+  
+          <tr>
+            <td>Fri</td>
+            <td>24</td>
+            <td>Jan</td>
+            <td><em>Due: Project 0 Questions, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>27</td>
+            <td>Jan</td>
+            <td>Image Filtering</td>
+            <td><a href="./lectures/2020Spring_02_ImageFiltering.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_02_ImageFiltering.pdf">PDF</a></td>
+            <td>Klette 1.1, 2.1; Szeliski 3.2</td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>29</td>
+            <td>Jan</td>
+            <td>Thinking in Frequency</td>
+            <td><a href="./lectures/2020Spring_03_ThinkingInFrequencyPart1.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_03_ThinkingInFrequencyPart1.pdf">PDF</a></td>
+            <td>Klette 2.2.2, Szeliski 3.4</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Thinking in Frequency, part 2</td>
+            <td><a href="./lectures/2020Spring_04_ThinkingInFrequencyPart2.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_04_ThinkingInFrequencyPart2.pdf">PDF</a></td>
+            <td>Klette 1.2, Szeliski 3.5.2, 8.1.1</td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>31</td>
+            <td>Jan</td>
+            <td><em>Due: Project 1 Questions + Code, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+  
+          <tr>
+            <td class="schedulesection" colspan="7">Feature Detection and Matching</td>
+          </tr>
+          <tr>
+            <td>Mon</td>
+            <td>03</td>
+            <td>Feb</td>
+            <td>Edge Detection</td>
+            <td><a href="./lectures/2020Spring_05_EdgeDetection.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_05_EdgeDetection.pdf">PDF</a></td>
+            <td>Klette 2.3, 2.4, Szeliski 4.2</td>
+          </tr>
+          <tr>
+            <td>Weds</td>
+            <td>05</td>
+            <td>Feb</td>
+            <td>Interest Points and Corners</td>
+            <td><a href="./lectures/2020Spring_06_InterestPointsAndCorners.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_06_InterestPointsAndCorners.pdf">PDF</a></td>
+            <td>Klette 2.3, 2.4, Szeliski 4.1.2</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Local Image Features and Feature Matching</td>
+            <td><a href="./lectures/2020Spring_07_LocalImageFeaturesAndMatching.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_07_LocalImageFeaturesAndMatching.pdf">PDF</a></td>
+            <td>Klette 9.2, Szeliski 4.1.3, 4.3.2</td>
+          </tr>
+  
+          <!-- <tr>
+              <td>Fri</td>
+              <td>07</td>
+              <td>Feb</td>
+              <td><em>Due: Project 2 Questions, 21:00, Gradescope</em></td>
+              <td></td>
+              <td></td>
+          </tr> -->
+  
+          <tr>
+            <td>Mon</td>
+            <td>10</td>
+            <td>Feb</td>
+            <td>Light and Color</td>
+            <td><a href="./lectures/2020Spring_08_CamerasLightAndColor.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_08_CamerasLightAndColor.pdf">PDF</a></td>
+            <td>Klette 6.1, Klette 1.3, Szeliski 2.1, esp. 2.1.5, 2.2, 2.3</td>
+          </tr>
+  
+          <tr>
+            <td class="schedulesection" colspan="7">Machine Learning Crash Course</td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td>12</td>
+            <td>Feb</td>
+            <td>Machine Learning: Unsupervised Learning</td>
+            <td><a href="./lectures/2020Spring_09_MachineLearningCrashCourse_UnsupervisedLearning.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_09_MachineLearningCrashCourse_UnsupervisedLearning.pdf">PDF</a></td>
+            <td>Szeliski 5.3</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Machine Learning: Supervised Learning</td>
+            <td><a href="./lectures/2020Spring_10_MachineLearningCrashCourse_SupervisedLearning.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_10_MachineLearningCrashCourse_SupervisedLearning.pdf">PDF</a></td>
+            <td>Szeliski 5.3</td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>14</td>
+            <td>Feb</td>
+            <td><em>Due: Project 2 Questions+Code, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+  
+          <tr>
+            <td class="schedulesection" colspan="7">Recognition</td>
+          </tr>
+          <tr>
+            <td>Mon</td>
+            <td>17</td>
+            <td>Feb</td>
+            <td><em>No class&mdash;University long weekend.</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td>19</td>
+            <td>Feb</td>
+            <td>Recognition, Bag of Features, and Large-scale Instance Recognition</td>
+            <td><a href="./lectures/2020Spring_11_RecognitionAndBagOfWords.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_11_RecognitionAndBagOfWords.pdf">PDF</a></td>
+            <td>Szeliski 14</td>
+          </tr>
+          <tr>
+            <td>Fri</td>
+            <td>21</td>
+            <td>Feb</td>
+            <td><em>Due: Project 3 Questions, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>24</td>
+            <td>Feb</td>
+            <td>Large-scale Scene Recognition and Advanced Feature Encoding</td>
+            <td><a href="./lectures/2020Spring_12_LargeScaleSceneRecognitionAndAdvancedFeatureEncoding.pptx">PPTX</a> |
+              <a href="./lectures/2020Spring_12_LargeScaleSceneRecognitionAndAdvancedFeatureEncoding.pdf">PDF</a></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td>26</td>
+            <td>Feb</td>
+            <td>Detection with Sliding Windows: Dalal Triggs and Viola Jones</td>
+            <td><a href="./lectures/2020Spring_13_DetectionWithSlidingWindowsDalalTriggsViolaJones.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_13_DetectionWithSlidingWindowsDalalTriggsViolaJones.pdf">PDF</a></td>
+            <td>Szeliski 14.1 and 14.2</td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>26</td>
+            <td>Feb</td>
+            <td>Descriptor Failure and Big Data</td>
+            <td><a href="./lectures/2020Spring_14_BigData.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_14_BigData.pdf">PDF</a></td>
+            <td>Szeliski 14.5</td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>28</td>
+            <td>Feb</td>
+            <td><em>Due: Project 3 Code, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td class="schedulesection" colspan="7">Deep Learning</td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>02</td>
+            <td>Mar</td>
+            <td>Neural Networks and Convolutional Neural Networks</td>
+            <td><a href="./lectures/2020Spring_15_NeuralNetworks_CNNs.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_15_NeuralNetworks_CNNs.pdf">PDF</a></td>
+            <td>Goodfellow 6, 9</td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>04</td>
+            <td>Mar</td>
+            <td>Training Neural Networks</td>
+            <td><a href="./lectures/2020Spring_16_TrainingNeuralNetworks.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_16_TrainingNeuralNetworks.pdf">PDF</a></td>
+            <td>Goodfellow 6, Goodfellow 7.1-7.5, 7.12</td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>09</td>
+            <td>Mar</td>
+            <td>What do CNNs learn?</td>
+            <td><a href="./lectures/2020Spring_17_WhatDoCNNsLearn.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_17_WhatDoCNNsLearn.pdf">PDF</a></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td>11</td>
+            <td>Mar</td>
+            <td>Architectures: ResNets, R-CNNs, FCNs, and UNets</td>
+            <td><a href="./lectures/2020Spring_18_ExploringCNNArchitectures.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_18_ExploringCNNArchitectures.pdf">PDF</a></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>13</td>
+            <td>Mar</td>
+            <td><em>Due: Project 4 Questions, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td class="schedulesection" colspan="7">Computer Vision and Society</td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>16</td>
+            <td>Mar</td>
+            <td>Social Good and Dataset Bias</td>
+            <td><a href="./lectures/2020Spring_19_SocialGoodandDatasetBias.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_19_SocialGoodandDatasetBias.pdf">PDF</a></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>18</td>
+            <td>Mar</td>
+            <td>COVID-19 cancellation</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>20</td>
+            <td>Mar</td>
+            <td><em>Due: Project 4 Code, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+  
+          <tr>
+            <td class="schedulesection" colspan="7">Spring break</td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>23</td>
+            <td>Mar</td>
+            <td><em>Spring break!</em></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>25</td>
+            <td>Mar</td>
+            <td><em>Spring break!</em></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>27</td>
+            <td>Mar</td>
+            <td><em>Spring break!</em></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+  
+          <tr>
+            <td class="schedulesection" colspan="7">Cameras, Multiple Views, and Motion</td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>30</td>
+            <td>Mar</td>
+            <td>Cameras and Calibration</td>
+            <td><a href="./lectures/2020Spring_20_CamerasAndCalibration.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_20_CamerasAndCalibration.pdf">PDF</a></td>
+            <td>Szeliski 2.1, 6.1, 6.2.1</td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>01</td>
+            <td>Apr</td>
+            <td>Final Project Explanation and Discussion</td>
+            <td>
+              <a
+                href="https://docs.google.com/presentation/d/1ul_FRwtoUHhKO7aBepjr4lEwC897l_REfQ-iEEFqWk4/edit?usp=sharing">Google
+                Slides</a>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>01</td>
+            <td>Apr</td>
+            <td>Stereo Vision, Epipolar Geometry, and RANSAC</td>
+            <td><a href="./lectures/2020Spring_21_StereoIntroduction.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_21_StereoIntroduction.pdf">PDF</a></td>
+            <td>Szeliski 7, 8.1, 8.4, 11</td>
+            <td></td>
+          </tr>
+  
+  
+          <tr>
+            <td>Mon</td>
+            <td>06</td>
+            <td>Apr</td>
+            <td>Stereo Disparity Matching</td>
+            <td><a href="./lectures/2020Spring_22_StereoDisparity.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_22_StereoDisparity.pdf">PDF</a></td>
+            <td>Szeliski 6.2.1</td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>08</td>
+            <td>Apr</td>
+            <td>Depth Cameras and Real-time Reconstruction</td>
+            <td><a href="./lectures/2020Spring_23_DepthCameras.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_23_DepthCameras.pdf">PDF</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Fri</td>
+            <td>10</td>
+            <td>Apr</td>
+            <td><em>Due: Project 5 Questions + Code, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><em>Due: Project teams and proposal, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+  
+          <tr>
+            <td>Mon</td>
+            <td>14</td>
+            <td>Apr</td>
+            <td><em>No class</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td>16</td>
+            <td>Apr</td>
+            <td>Real-time Depth-based Pose Estimation</td>
+            <td><a href="./lectures/2020Spring_24_RealtimePoseEstimation.pptx">PPTX</a> | <a
+                href="./lectures/2020Spring_24_RealtimePoseEstimation.pdf">PDF</a></td>
+            <td></td>
+          </tr>
+          <!--
+              <tr>
+              <td>Wed</td>
+              <td>16</td>
+              <td>Apr</td>
+              <td>Deep Learning for Reconstruction</td>
+              <td><a href="./lectures/2019Spring_25_OpticalFlow.pptx">PPTX</a> | <a href="./lectures/2019Spring_25_OpticalFlow.pdf">PDF</a></td>
+              <td></td>
+              </tr>
+          -->
+          <tr>
+            <td>Fri</td>
+            <td>17</td>
+            <td>Apr</td>
+            <td><em>Due: Project progress report 1, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td class="schedulesection" colspan="7">'Reading period'</td>
+          </tr>
+          <tr>
+            <td>Mon</td>
+            <td>20</td>
+            <td>Apr</td>
+            <td>Research paper class</td>
+            <td>
+              <!--<a href="">PPTX</a> | <a href="">PDF</a>-->
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Wed</td>
+            <td>22</td>
+            <td>Apr</td>
+            <td>Research paper class</td>
+            <td>
+              <!--<a href="">PPTX</a> | <a href="">PDF</a>-->
+            </td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>24</td>
+            <td>Apr</td>
+            <td><em>Due: Project progress report 2, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>27</td>
+            <td>Apr</td>
+            <td>Final project AMA</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Wed</td>
+            <td>29</td>
+            <td>Apr</td>
+            <td>Final project AMA</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Mon</td>
+            <td>04</td>
+            <td>May</td>
+            <td>Due: Final project presentations 'fast forward'! 15:00 in class.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+          <tr>
+            <td>Fri</td>
+            <td>08</td>
+            <td>May</td>
+            <td><em>Due: Final project report and code, 21:00, Gradescope</em></td>
+            <td></td>
+            <td></td>
+          </tr>
+  
+        </tbody>
+      </table>
+    </section>
+
+
+
+    <section id="generalpolicy">
+      <h2>General Policy</h2>
+  
+  
+      <h3>Welcome!</h3>
+      <p class="hyphenate">
+        Our intent is that this course provide a welcoming environment for all students who satisfy the prerequisites.
+        Our TAs have undergone training in diversity and inclusion, and all members of the CS community, including
+        faculty and staff, are expected to treat one another in a professional manner. If you feel you have not been
+        treated in a professional manner by any of the course staff, please contact any of James (the instructor), Ugur
+        Cetintemel (Dept. Chair), Tom Doeppner (Vice Chair) or Laura Dobler (diversity and inclusion staff member). We
+        will take all complaints about unprofessional behavior seriously. Your suggestions are encouraged and
+        appreciated. Please let James know of ways to improve the effectiveness of the course for you personally, or for
+        other students or student groups.
+  
+        To access student support services and resources, and to learn more about diversity and inclusion in CS, please
+        visit <a href="http://cs.brown.edu/about/diversity/resources/">http://cs.brown.edu/about/diversity/resources/</a>.
+      </p>
+  
+      <p class="hyphenate">
+        Prof. Krishnamurthi has <a href="http://cs.brown.edu/courses/cs019/2016/professionalism.html">good notes</a> on
+        this area.
+      </p>
+  
+      <h3>Quiet Hours</h3>
+      <p class="hyphenate">
+        This class runs <em>quiet hours</em> from 9pm to 9am every day. Please do not expect a response from us via any
+        channel. Likewise, we won't ask you to do anything between these times, either, like hand in projects.
+      </p>
+  
+      <h3>Academic Integrity, Collaboration, and Citation</h3>
+      <p class="hyphenate">
+        Feel free to talk to your friends about the concepts in the projects, and work through the ideas behind problems
+        together, but be sure to always write your own code and perform your own write up. You may work with other
+        students to debug code; please keep in mind that debugging is a useful way to learn and is a skill to
+        practice---please spend time debugging independently and come to office hours for help.
+      </p>
+      <p class="hyphenate">
+        You are expected to implement the core components of each project on your own, but the extra credit
+        opportunities often build on third party data sets or code. Feel free to include results built on other
+        software, as long as you credit correctly in your handin and clearly demark your own work. In general, if you
+        use an idea, text, or code from elsewhere, then cite it.
+      </p>
+      <p class="hyphenate">
+        Brown-wide, academic dishonesty is not tolerated. This includes cheating, lying about course matters,
+        plagiarism, or helping others commit a violation. Plagiarism includes reproducing the words of others without
+        both the use of quotation marks and citation. Students are reminded of the obligations and expectations
+        associated with the Brown Academic and Student Conduct Codes.
+      </p>
+  
+      <h3>Accommodations</h3>
+      <p class="hyphenate">
+        Brown University is committed to full inclusion of all students. Please inform me if you have a disability or
+        other condition that might require accommodations or modification of any of these course procedures. You may
+        email me, come to office hours, or speak with me after class, and your confidentiality is respected. We will do
+        whatever we can to support accommodations recommended by SEAS. For more information contact <a
+          href="https://www.brown.edu/campus-life/support/accessibility-services/">Student and Employee Accessibility
+          Services (SEAS)</a> at 401-863-9588 or
+        <script type="text/javascript">hiddenemail('brown.edu', 'SEAS')</script><noscript>Enable Javascript to see the
+          email address</noscript>. Students in need of short-term academic advice or support can contact one of the
+        deans in the Dean of the College office.
+      </p>
+  
+      <h3>Mental Health</h3>
+      <p class="hyphenate">
+        Being a student can be very stressful. If you feel you are under too much pressure or there are psychological
+        issues that are keeping you from performing well at Brown, we encourage you to contact <a
+          href="https://www.brown.edu/campus-life/support/counseling-and-psychological-services/">Brown's Counseling
+          and Psychological Services</a>. They provide confidential counseling and can provide notes supporting
+        extensions on assignments for health reasons.
+      </p>
+  
+      <h3>Incomplete Policy</h3>
+      <p class="hyphenate">
+        We expect everyone to complete the course on time. However, we certainly understand that there may be factors
+        beyond your control, such as health problems and family crises, that prevent you from finishing the course on
+        time. If you feel you cannot complete the course on time, please discuss with James Tompkin the possibility of
+        being given a grade of Incomplete for the course and setting a schedule for completing the course in the
+        upcoming year.
+      </p>
+  
+      <h3>Electronic Etiquette</h3>
+      <p class="hyphenate">
+        Laptops are discouraged, please, except for class-relevant activities, e.g., to help answer questions and show
+        items relevant to discussion. No social media, email, etc., because it distracts not just you but other students
+        as well. Read Shirky on this issue (<a
+          href="https://medium.com/@cshirky/why-i-just-asked-my-students-to-put-their-laptops-away-7f5f7c50f368">"Why
+          I Just Asked My Students to Put Their Laptops Away"</a>), or Rockmore (<a
+          href="http://www.newyorker.com/tech/elements/the-case-for-banning-laptops-in-the-classroom">"The Case for
+          Banning Laptops in the Classroom"</a>).
+      <p>
+      <p class="hyphenate">
+        We will release course lecture material online. In considering laptop use for note taking, please be
+        aware that research has shown note taking on paper to be more efficient than on a laptop keyboard (<a
+          href="http://journals.sagepub.com/doi/abs/10.1177/0956797614524581">Mueller and Oppenheimer</a>), as
+        it pushes you to summarize the content instead of transcribe it.
+      </p>
+    </section>
+
+
+    <hr />
+
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <p class="hyphenate">
+        We would appreciate any feedback on how to improve the course. We have created <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfXz8MDuIGVuUTip51z8DDP0JEfnMNeC7WvVRrnRQ1O0hC2Ow/viewform">an
+          anonymous form to collect feedback</a>, which is accessible through your Brown Google account (but
+        we do not collect your identity). We will read the feedback every two weeks at grading. If there is
+        something more urgent (and not anonymous), please email James or the course staff. If there is something
+        urgent and anonymous, please consider contacting one of the parties listed in the general policy.
+      </p>
+    </section>
+
+    <hr />
+
+    <section id="acknowledgements">
+      <h2>Acknowledgements</h2>
+      <p class="hyphenate">
+        The materials from this class rely significantly on slides prepared by other instructors, especially
+        James Hays, Derek Hoiem, and Svetlana Lazebnik. Each slide set and assignment contains acknowledgements.
+        Feel free to use these slides for academic or research purposes, but please maintain all
+        acknowledgements.
+        <!-- Many materials are modified from those of Alexei A. Efros, who in turn uses materials from Steve Seitz, Rick Szeliski, Paul Debevec, Stephen Palmer, Paul Heckbert, David Forsyth, Steve Marschner and others, as noted in the slides.-->
+      </p>
+  
+      <p class="hyphenate">
+        Thanks to Tom Doeppner and Laura Dobler for the text on accommodation, mental health, and incomplete
+        policy.
+      </p>
+  
+      <p class="hyphenate">Thank you to the previous TAs who helped to teach and improve this class. Previous
+        course runs:</p>
+      <ul>
+        <li><a href="./2019_Spring/index.html">2019 Spring (James Tompkin)&mdash;Yuanning Hu (HTA), Ruizhao Zhu
+            (HTA), Michael Chen, Joshua Chipman, Jamie DeMaria, Wentao Han, Yan Huang, Purvi Goel, Seungchan
+            Kim, Zhoutao Lu, Josh Roy, Anna Sabel, Eleanor Tursman (GTA), Brendan Walsh, Haoze Zhang, Jiawei
+            Zhang.</a></li>
+        <li><a href="./2017_Fall/index.html">2017 Fall (James Tompkin)&mdash;Aaron Gokaslan (HTA), Spencer
+            Boyum, Harsh Chandra, Joshua Chipman, Qikun (Tim) Guo, Yue Guo, Yunshu Mao, Luke Murray, Vivek
+            Ramanujan, Abhishek Sharma, Eleanor Tursman, Andrew Zhou.</a></li>
+        <li><a href="./2017_Spring/index.html">2017 Spring (James Tompkin)&mdash;Eric Xiao (HTA), Jackson
+            Gibbons, Susan Liu, Daniel Nurieli, Eleanor Tursman, and Martin Zhu.</a></li>
+        <li><a href="./2013/">2013 (James Hays)</a></li>
+        <li><a href="./2011/">2011 (James Hays)</a></li>
+        <li><a href="./2009/">2009 (Michael Black)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="js/common.js"></script>
+</body>
+
+</html>

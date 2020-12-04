@@ -1,0 +1,205 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>Development Project</title>
+  <link rel="stylesheet" href="../../index.css">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+  <!-- syntax higlighting -->
+  <link rel="stylesheet" href="../../prism.css">
+  <script src="../../prism.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbar-content">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../resume_placeholder.pdf">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1 id="development-project">Development Project</h1>
+    <p>This project started out as a declaritive UI programming exercise (using the <a
+        href="https://reactjs.org">React.js</a> framework) to create a simple frontend application in <a
+        href="https://reactjs.org">React.js</a> that would actually be useful to a student like me.</p>
+    <p>The application itself is a simple &quot;Shopping Cart&quot; implementation themed around 1000-level computer
+      science (CS) courses offered at Brown University. All course information in this repository were pulled from the
+      <a href="https://cab.brown.edu">Courses@Brown</a> website and <a href="https://thecriticalreview.org/">The
+        Critical Review</a>. </p>
+    <h2 id="goal-functionality-of-application">Goal &amp; Functionality of Application</h2>
+    <p>The goal of this application is to help users pick and choose from a set of 1000-level CS courses at Brown while
+      also keeping track of the estimated weekly commitment required in hours. Thus, users can easily plan which
+      computer science courses to take in a semester without being surprised by an unmanageable workload.</p>
+    <div class="centered-img"><a href="https://pacific-sea-06829.herokuapp.com/"><img src="imgs/application.png" alt="Application screenshot"></a></div>
+    <p>Users can view a set of 12 CS courses and choose which ones to add to their &quot;course shopping cart&quot;. The
+      cart adds together the total weekly hours of each added course and conveniently displays the number to the user.
+    </p>
+    <p>To see the final deployed product, <a href="https://pacific-sea-06829.herokuapp.com">click on this link</a>.</p>
+    <p>To see the source code for the app, <a href="https://github.com/CaoRuiming/cs1300-development-app">click on this
+        link</a>.</p>
+    <h2 id="usability-principles-considered">Usability Principles Considered</h2>
+    <p>To make my application intuitive and pleasant to use, I kept the following usability principles in mind:</p>
+    <ul>
+      <li>Learnability<ul>
+          <li>There is space between the shopping cart and the course gallery with the viewing options to keep these two
+            sections distinct.</li>
+          <li>No potentially confusing icons are used in the interface: buttons linked to specific actions contain
+            descriptive text (e.g. &#39;Add to Cart&#39; button).</li>
+          <li>Interface layout is similar to the typical one-page shopping site, so users can easily trans</li>
+          <li>Clicking any non-disabled button in the interface will result in an immediate action which can be undone
+            if desired (e.g. filtering, sorting, adding and removing items from cart).</li>
+        </ul>
+      </li>
+      <li>Memorability<ul>
+          <li>Courses can only appear in the shopping cart once, so once an item is added to the cart, the &#39;Add to
+            Cart&#39; button is disabled and changed to say &#39;Added to Cart&#39;.</li>
+        </ul>
+      </li>
+      <li>Efficiency<ul>
+          <li>Useful filter and sort options are included in the view options section above the course gallery so that
+            users can more easily find courses that fit into their schedules.</li>
+        </ul>
+      </li>
+    </ul>
+    <p>So, without further ado, let&#39;s dive into the juicy details!</p>
+    <h2 id="technical-details">Technical Details</h2>
+    <p>All source code is <a href="https://github.com/CaoRuiming/cs1300-development-app">available on Github</a>.</p>
+    <p>This section outlines the architecture of this project and includes the following details:</p>
+    <ul>
+      <li>Organization of components</li>
+      <li>How data is passed down through components</li>
+      <li>How user interactions can trigger changes in the state of components</li>
+    </ul>
+    <h3 id="component-organization-hierarchy">Component Organization/Hierarchy</h3>
+    <p>When going into this project, I wanted my code to have a relatively flat structure to stay as concise and easy to
+      understand.</p>
+    <p>There are 3 main components:</p>
+    <ul>
+      <li><strong>App</strong>: the root component of the app; contains all logic involving user interaction (i.e.
+        sorting, filtering, and adding/removing items)</li>
+      <li><strong>Gallery</strong>: a component that displays a list of courses as a collection of cards; this component
+        is used for both displaying all avaiable courses as well as displaying all items in the user&#39;s shopping cart
+      </li>
+      <li><strong>ViewOptions</strong>: a component that contains buttons that allow the user to filter and sort the
+        items in the course selection gallery (not shopping cart)</li>
+    </ul>
+    <p>The hierarchy is as follows:</p>
+    <ul>
+      <li><code>App</code>
+        <ul>
+          <li>left section div<ul>
+              <li><code>ViewOptions</code></li>
+              <li><code>Gallery</code> (Course Selection)</li>
+            </ul>
+          </li>
+          <li>right section div<ul>
+              <li><code>Gallery</code> (Shopping Cart)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p>Below is a screenshot of the app again for reference.</p>
+    <div class="centered-img"><a href="https://pacific-sea-06829.herokuapp.com/"><img src="imgs/application.png" alt="Application screenshot"></a></div>
+    <h3 id="flow-of-data-between-components">Flow of Data Between Components</h3>
+    <p><code>App</code> holds all of the state values and state-setting functions. The state values and setters are
+      shown below:</p>
+    <pre><code class="lang-js">const <span class="hljs-string">[semesterFilter, setSemesterFilter]</span> = useState(SEMESTER.ALL);
+const <span class="hljs-string">[trackFilter, setTrackFilter]</span> = useState(TRACK.ALL);
+const <span class="hljs-string">[sortBy, setSortBy]</span> = useState(SORT.DEFAULT);
+const <span class="hljs-string">[courseGalleryItems, setCourseGalleryItems]</span> = useState(ITEMS);
+const <span class="hljs-string">[cartGalleryItems, setCartGalleryItems]</span> = useState(<span class="hljs-string">[]</span>);
+</code></pre>
+    <p>(Syntax highlighting is powered by <a href="https://cab.brown.edu">Prism</a>.)</p>
+    <p><code>App</code> only passes the necessary values and functions to its child components:</p>
+    <ul>
+      <li><code>ViewOptions</code> receives the values and setters for both filters and sortBy as props from
+        <code>App</code></li>
+      <li><code>Gallery</code> (Course Selection) receives courseGalleryItems and a function for adding courses to the
+        shopping cart as props from <code>App</code></li>
+      <li><code>Gallery</code> (Cart Selection) receives cartGalleryItems and a function for removing courses from the
+        shopping cart as props from <code>App</code></li>
+    </ul>
+    <h3 id="triggering-actions-through-user-interactions">Triggering Actions Through User Interactions</h3>
+    <p>UI changes are all triggered by the setter functions: setSemesterFilter, setTrackFilter, setSortBy,
+      setCourseGalleryItems, and setCartGalleryItems.</p>
+    <h4 id="-viewoptions-"><code>ViewOptions</code></h4>
+    <p>Whenever the user clicks on a filter or sort method in <code>ViewOptions</code>, the corresponding setter
+      function is called, triggering a <code>useEffect</code> hook in <code>App</code> to filter, sort, and update
+      courseGalleryItems. This updated list of items is then passed into the <code>Gallery</code> (Course Selection)
+      component to update the displayed course cards.</p>
+    <p>In case you&#39;re interested in how the <code>useEffect</code> hook does the sorting and filtering, here it is:
+    </p>
+    <pre><code class="lang-js"><span class="hljs-comment">// update displayed courses in the course gallery upon filter or sort change</span>
+useEffect(() =&gt; {
+  <span class="hljs-comment">// start out with copy of original full course list</span>
+  let <span class="hljs-keyword">new</span><span class="hljs-type">CourseGalleryItems</span> = [...ITEMS];
+
+  <span class="hljs-comment">// apply filters</span>
+  <span class="hljs-keyword">new</span><span class="hljs-type">CourseGalleryItems</span> = <span class="hljs-keyword">new</span><span class="hljs-type">CourseGalleryItems</span>
+    .filter(x =&gt; semesterFilter === SEMESTER.ALL || x.semester === semesterFilter)
+    .filter(x =&gt; trackFilter === TRACK.ALL || x.track === trackFilter);
+
+  <span class="hljs-comment">// apply sorting</span>
+  <span class="hljs-keyword">if</span> (sortBy !== SORT.DEFAULT) {
+    <span class="hljs-keyword">new</span><span class="hljs-type">CourseGalleryItems</span> = <span class="hljs-keyword">new</span><span class="hljs-type">CourseGalleryItems</span>
+      .sort((a, b) =&gt; {
+        <span class="hljs-keyword">return</span> sortBy === SORT.HOURS_ASC
+          ? a.weeklyHours - b.weeklyHours
+          : <span class="hljs-type">b</span>.weeklyHours - a.weeklyHours
+      });
+  }
+
+  <span class="hljs-comment">// save new list of course items</span>
+  setCourseGalleryItems(<span class="hljs-keyword">new</span><span class="hljs-type">CourseGalleryItems</span>);
+}, [
+  semesterFilter,
+  trackFilter,
+  sortBy,
+  setSemesterFilter,
+  setTrackFilter,
+  setSortBy,
+  setCourseGalleryItems,
+]);
+</code></pre>
+    <p>(Syntax highlighting is powered by <a href="https://cab.brown.edu">Prism</a>.)</p>
+    <h4 id="-gallery-course-selection-"><code>Gallery</code> (Course Selection)</h4>
+    <p>When the user clicks on the add button for any course card, it triggers a callback function that appends that
+      course item to cartGalleryItems in <code>App</code>, which then is sent to <code>Gallery</code> (Cart Selection)
+      to update the items displayed in the cart.</p>
+    <h4 id="-gallery-cart-selection-"><code>Gallery</code> (Cart Selection)</h4>
+    <p>When the user clicks on the remove button for any item in the shopping cart, it triggers a callback function that
+      removes that course item from cartGalleryItems in <code>App</code>, which is sent back to <code>Gallery</code>
+      (Cart Selection) to update the items displayed in the cart.</p>
+    <h2 id="conclusion">Conclusion</h2>
+    <p>This project overall was fun exercise in concise and descriptive React.js development. Although the scope of the
+      application&#39;s current form is rather limited in terms of content and filtering/sorting, the structure of this
+      project should make future extensions or spinoffs easy to do.</p>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../../jquery-3.5.1.slim.min.js"></script>
+  <script src="../../bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

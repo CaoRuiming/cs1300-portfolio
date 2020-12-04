@@ -1,0 +1,149 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+
+    font-family: system, sans-serif;
+    font-size: 100%;
+    line-height: 1.4;
+	color: #343434; /* Jet Black */
+	background-color: #FCFCFC; /* Off white */
+}
+@media (max-width: 576px) {
+    body {
+        font-size: 110%;
+    }
+}
+
+main {
+    padding-top: 90px;
+    max-width: 1000px;
+    width: 95%;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+}
+
+.center-contents {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .mobile {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 767px) {
+    .not-mobile {
+        display: none !important;
+    }
+}
+
+@font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+  }
+
+h1 {
+    text-align: center;
+    font-family: Garamond, ‘Hoefler Text’, ‘Times New Roman’, Times, serif;
+	font-size: 3em;
+	font-weight: normal;
+	font-style: normal;
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+}
+
+h2 {
+    font-family: Garamond, ‘Hoefler Text’, ‘Times New Roman’, Times, serif;
+    position: relative;
+    font-weight: normal;
+    font-size: 2em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+}
+h2:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    display: block;
+    height: 3px;
+    background-color: hsl(231, 100%, 40%);
+    bottom: -8px;
+}
+h2 + p {
+    margin-top: 20px;
+}
+
+h3 {
+    color: hsl(231, 100%, 30%);;
+    font-weight: normal;
+    font-size: 1.5em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+}
+
+a:link {color: hsl(231, 100%, 50%); text-decoration: none; }
+a:active {color: hsl(231, 100%, 44%); text-decoration: underline; }
+a:visited {color: hsl(231, 100%, 40%); text-decoration: none; }
+a:hover {color: hsl(231, 100%, 47%); text-decoration: underline; }
+/* Force word-wrapping for long urls */
+a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Compensate for fixed header when jumping to a specific part of a page */
+:target:before {
+    content: '';
+    display: block;
+    height: 70px; /* fixed header height*/
+    margin: -70px 0 0; /* negative fixed header height */
+}
+
+
+.centered-img {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+.centered-img img {
+    border: 2px inset hsl(231, 100%, 42%);
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.annotations img {
+    width: 100%;
+}
+.annotations .row {
+    margin-top: 30px;
+}
+.annotations {
+    padding-bottom: 30px;
+}

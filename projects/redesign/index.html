@@ -1,0 +1,408 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Responsive Redesign</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="../../index.css">
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="70">
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbar-content">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../resume_placeholder.pdf">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-content">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#observations">Observations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#prototypes">Prototypes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#implementation">Implementation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#conclusion">Conclusion</a>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+  <main>
+    <section id="home">
+      <h1>Responsive Redesign</h1>
+      <p>For this project, I decided to do something that I had wanted to do since January 2020: redesign Brown&#39;s <a
+          href="https://cs.brown.edu/courses/csci1430/">Computer Vision (CSCI 1430) course website</a> to be more modern
+        and pleasant to use.</p>
+      <p>When I first saw the one-page website as a student taking the class, I was appalled by the sheer amount of
+        scrolling needed to navigate the sections. The web page was also not optmized for mobile (phone) devices, which
+        was a problem because I would often check for CSCI 1430 project releases and office hours from my phone.</p>
+      <p>So here is my redesign process for the CSCI 1430 course website.</p>
+      <p>You may notice that the style of this page shares similarities with that of the redesigned website. This is
+        because I took the elements and style that I liked from the redesign and applied here as well!</p>
+      <p><a target="_blank" rel="noopener noreferrer" href="redesigned.html">Here's a link to the finished product</a> if you want to skip to the result!</p>
+    </section>
+
+    <section id="observations">
+      <h2>Making Observations</h2>
+      <p>The original website doesn&#39;t look too bad at first glace on a laptop...</p>
+      <div class="centered-img">
+        <a target="_blank" rel="noopener noreferrer" href="https://cs.brown.edu/courses/csci1430/">
+          <img alt="Screenshot of original website" src="imgs/original_website.png">
+        </a>
+      </div>
+      <p>...but things fall apart quickly on smaller sized screens.</p>
+      <div class="centered-img">
+        <a target="_blank" rel="noopener noreferrer" href="https://cs.brown.edu/courses/csci1430/">
+          <img
+            alt="Screenshot of original website on phone screen"
+            src="imgs/original_website_mobile.jpeg"
+            style="width: auto">
+        </a>
+      </div>
+      <p>So here are my general observations grouped by the four usability guidelines:</p>
+      <ul>
+        <li>Usability<ul>
+            <li>The website is not mobile friendly: text is small and wide tables/images cause horizontal scrolling for
+              the whole page</li>
+            <li>When reading tables, it can be easy to loose track of which row you&#39;re looking at (e.g. when trying to
+              find a project&#39;s due date in a table row, a user can accidentally get off track and read the due date on
+              a different project&#39;s row)</li>
+          </ul>
+        </li>
+        <li>Learnability<ul>
+            <li>Pretty straightforward one-page website where the navbar at the top links to the various sections</li>
+            <li>Small issue: the order of links in the navbar do not perfectly correspond to the order of the sections on
+              the website</li>
+          </ul>
+        </li>
+        <li>Memorability<ul>
+            <li>Once a user scrolls past a section header, it&#39;s hard to determine what section they&#39;re current
+              viewing</li>
+            <li>It&#39;s hard to memorize the exact location and order of each section of the website</li>
+            <li>Once you&#39;re in a section, it&#39;s hard to remember how to get to another specific section without
+              excessive scrolling</li>
+          </ul>
+        </li>
+        <li>Efficiency<ul>
+            <li>Users need to scroll a lot to reach various sections of the page: this takes a lot of unecessary time and
+              physical effort</li>
+            <li>It&#39;s difficult to distinguish the subsections within the sections from other sections: style-wise, the
+              document hierarchy is unclear (most section and subsection headings are <code>&lt;h2&gt;</code>)</li>
+            <li>The only place wthin links to the main sections of the website is in the static navbar located on the very
+              top of the page</li>
+          </ul>
+        </li>
+      </ul>
+      <h3 id="accessibility">Accessibility</h3>
+      <p>Another concern I had with the original website was its accessibility and ease of use through assistive
+        technologies like screen readers. This website is a pretty simple static page, so poor usability for users with
+        special accessiblity needs is not acceptable.</p>
+      <p>Thus, I ran the original website through <a href="https://wave.webaim.org">WAVE</a> (web accessibility evaluation
+        tool) and made the following observations of issues:</p>
+      <ul>
+        <li>Too many fully justified paragraph blocks -- i.e. there are lost of large, solid blocks of text</li>
+        <li>No language specified in the html tag</li>
+        <li>No semantic html/ARIA landmarks: it&#39;s hard to distinguish the separate sections of the website through
+          document structure</li>
+        <li>tables lack captions that describe their contents</li>
+        <li>many PowerPoint and PDF links</li>
+      </ul>
+      <p>Besides the last point about links to PowerPoints and PDFs, all of these issues present significant usability
+        problems and will need to be fixed in the redesign. Redoing the PowerPoints and PDFs to be accessible would be a
+        lot of work and out of scope for this project.</p>
+      <p>I additionally ran the original website through a quick screen reader test on WAVE, and navigation throughout the
+        page was possible, but cumbersome because of the sheer amount of content and lack of document structure.</p>
+
+      <div class="centered-img">
+        <a target="_blank" rel="noopener noreferrer" href="https://wave.webaim.org/report#/https://cs.brown.edu/courses/csci1430/">
+          <img alt="Screenshot accessibility analysis of original website" src="imgs/original_wave.png">
+        </a>
+      </div>
+    </section>
+
+    <section id="prototypes">
+      <h2>Making Prototypes</h2>
+      <p>Before I could dive in with implementing a redesign, I made low-fidelity (lo-fi) and high-fidelity (hi-fi)
+        prototypes in <a target="_blank" rel="noopener noreferrer" href="https://balsamiq.com">Balsamiq</a> and <a target="_blank" rel="noopener noreferrer"
+          href="https://www.adobe.com/products/xd.html">Adobe XD</a>, respectively, so that I would have a better idea of
+        how the final product should look.</p>
+      <p>For each set of prototypes, I made at least 3 wireframes: one for for desktop-sized screens, one for tablet-sized
+        screens, and one for phone-sized screens.</p>
+      <p>Because each wireframe is very tall since this is a single-page website, I will only showcase the key design
+        changes with annotations here. Of course, links to the full wireframes will be provided as well.</p>
+      <h3 id="low-fidelity-prototypes">Low-Fidelity Prototypes</h3>
+      <p>The point of my lo-fi prototypes was to develop solutions for the problems I previously observed in the original
+        website.</p>
+      <p>If you would like to see/download full wireframes click on the following links:</p>
+      <ul>
+        <li><a target="_blank" rel="noopener noreferrer" href="imgs/lofi/desktop.png">
+          Desktop design</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="imgs/lofi/tablet.png">
+          Tablet design</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="imgs/lofi/phone.png">
+          Phone design</a></li>
+      </ul>
+      <p>Here are some key design choices I made in these prototypes. Note that there are no annotations for the tablet
+        design since it is very similar to the desktop design.</p>
+      <div class="annotations container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/lofi/1.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) Always-visible navbar that is always located at the top of the visible window no matter how far the
+              user has scrolled. As a users scrolls through various sections, the section that they are currently viewing will
+              be highlighted in the navbar. This way, users can always tell where they are in the web page, and they can click
+              on a section link in the navbar to jump to another section without additional scrolling.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/lofi/2.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) Section headers are much larger and distinct from paragraph text and subsection headers to make
+              document structure clearer. No more confusion between the start of a section and the start of a subsection!</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/lofi/3.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) Tables will have rows with alternating colors so it&#39;s easier to follow data along rows. If a
+              table is too wide for the window, the table (and only the table) will be able to be scrolled horizontally.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/lofi/4.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Mobile) The top navbar will collapse into a hamburger menu once the screen is small enough. Just like on
+              desktop, the navbar will always be visble on the top of the screen, and, when the navbar is expanded, it will
+              hightlight the link corresponding to the section that the user is currently viewing.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/lofi/5.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Mobile) Make the calendar embed no wider than the width of the screen and show the more compact
+              &quot;agenda&quot; calendar view (not directly shown in wireframe).</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/lofi/6.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Mobile) Ensure that large tables have their own horizontal scroll bars and don&#39;t make the entire website
+              have a horizontal scroll. This should also help fix the problem of small text because the width of the main body
+              of the page will no longer be wider than the screen.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="high-fidelity-prototypes">High-Fidelity Prototypes</h3>
+      <p>The point of my hi-fi prototypes was to more explicitly outline the implementation of the redesigned website.</p>
+      <p>If you would like to see/download full wireframes click on the following links:</p>
+      <ul>
+        <li><a target="_blank" rel="noopener noreferrer" href="imgs/hifi/desktop.jpg">
+          Desktop design</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="imgs/hifi/tablet.jpg">
+          Tablet design</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="imgs/hifi/phone.jpg">
+          Phone design</a></li>
+      </ul>
+      <p>Here are some key design choices I made in these prototypes.</p>
+      <div class="annotations container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/1.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) Navbar position is fixed to the top of the screen. This, along with the automatic highlighting of
+          the nav link corresponding to the current visible section, can likely be implemented using Bootstrap to avoid
+          writing custom, buggy code.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/2.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) Section headers have a serif font (Garamond preferred) and a constant-sized underline that could be
+          implemented as an <code>:after</code> element.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/3.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) Tables will essentially look like Bootstrap tables (no need to reinvent the wheel here), and the
+          background color of rows will darken on hover. Descriptive labels will also be added to each table.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/4.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) The Google Calendar <code>iframe</code> will take 100% width of its parent element (section
+          container) and have a constant height.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/5.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) Similar notes as point 3 about tables.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/6.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) The tentative schedule table will not have alternating row colors because the complexity of the
+          table might cause readability issues. The darkening of row background colors on hover should still happen here
+          though. Additionally, the table should allow scroll on x overflow (this property applies to desktop, tablet,
+          and phone views).</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/7.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Desktop) If a link in the navbar is clicked, the page will automatically scroll to the section that was
+          selected. The highlighting of the link in the navbar will update accordingly (can probably be implemented
+          using Bootstraps&#39;s <code>scrollspy</code>).</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/8.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Tablet) Once the screen width shrinks enough, the font size of the course title and lecture times at the top
+          of the page should be reduced slightly.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/9.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Phone) The full navbar menu will be hidden once the screen is too small to list all links on one line. Users
+          can toggle the visibility of the navbar links by clicking on the hamburger menu icon. Highlighting of the link
+          of visible section should still be functional on mobile.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="imgs/hifi/10.png">
+          </div>
+          <div class="col-md-6">
+            <p>(Phone) In implementation, there should be two iframes: one that shows the full week view, and one that shows
+          the agenda view for the day. The second iframe should be hidden on all views except on mobile, and the the
+          first frame should only be hidden on mobile. I can use media queries for this. (The wireframe does not show
+          the agenda view)</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="visual-design-style-guide">Visual Design Style Guide</h3>
+      <p>After creating my hi-fi prototypes, I also put together a simple UI style guide to summarize the specific designs
+        I used for the redesign. There&#39;s not much on here because this is a pretty straightforward website, after all.
+      </p>
+      <div class="centered-img">
+        <a target="_blank" rel="noopener noreferrer" href="imgs/hifi/style_guide.jpg">
+          <img alt="Image of UI style guide" src="imgs/hifi/style_guide.jpg">
+        </a>
+      </div>
+      <p>I also have the following notes on style:</p>
+      <ul>
+        <li>All maroon colors on the website (e.g. accents and link colors) are various shades of
+          <code>hsl(347,100%,30%)</code>.</li>
+        <li><code>h1</code> and <code>h2</code> have a serif font like Garamond. Other reasonable serif fonts are also
+          acceptable if Garamond is not available.</li>
+        <li>All other text on the website (including the navbar and <code>h3</code>) should have a sans-serif font like
+          Helvetica Neue. Other reasonable sans-serif fonts are also acceptable if Garamond is not available.</li>
+        <li>The background color of the whole website should be a slightly-off-white, not pure white. This should improve
+          readability of the pure black paragraph text.</li>
+      </ul>
+    </section>
+
+    <section id="implementation">
+      <h2>Implementing the Redesign</h2>
+      <p>My implementation process was essentially downloading the existing static html, js, and css files of the original
+        website and tweaking styling and html document layout until it solved the usability problems I had identified and
+        looked close enough to the hi-fi prototypes.</p>
+      <p>Click the screenshot below or <a target="_blank" rel="noopener noreferrer" href="redesigned.html">this link</a> to see the redesigned website for CSCI 1430!</p>
+      <div class="centered-img">
+        <a target="_blank" rel="noopener noreferrer" href="redesigned.html">
+          <img alt="Screenshot of redesigned website" src="imgs/redesigned_website.png">
+        </a>
+      </div>
+      <p>I also confirmed the usability improvements through a few tests:</p>
+      <ul>
+        <li>Simulating table and phone screens on Chrome developer tools worked as expected.</li>
+        <li>The website still looked great even when font size was set to 150% and the screen size was changed to that of
+          a tablet&#39;s.</li>
+        <li>WAVE brought up fewer accessibility issues than the original website (there were still a lot because of links
+          to PowerPoints and PDFs).</li>
+      </ul>
+    </section>
+
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+      <p>That&#39;s it! This is definitely not the flashiest redesign, but it makes the experience of using the website
+        significantly more pleasant for users on all devices </p>
+      <p>As for future directions, I am hoping to get in contact with the 2021 TA staff of Computer Vision (CSCI 1430) to
+        see if they will adopt my redesign!</p>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../../jquery-3.5.1.slim.min.js"></script>
+  <script src="../../bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

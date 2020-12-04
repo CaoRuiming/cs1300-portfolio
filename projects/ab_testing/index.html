@@ -1,0 +1,198 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>A/B Testing</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="../../index.css">
+
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" href="../../prism.css">
+  <script src="../../prism.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbar-content">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../resume_placeholder.pdf">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../home.html#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1 id="a-b-testing">A/B Testing</h1>
+    <p>The goal of this project was to serve two webpages with slightly different stylings and determine whether the
+      changes impacted user interactions using statistical methods such as 2-sample t tests and chi<sup>2</sup> tests.
+    </p>
+    <h2 id="setup">Setup</h2>
+    <p>The first step of of this project was to create a webpage with 2 different versions to show to users. The
+      original website was a simple storefront page that allowed users to add various cacti products to their carts.</p>
+    <p>I modified this original website to come up with my A and B webpages.</p>
+    <h3 id="a">A</h3>
+    <p>Notable changes:</p>
+    <ul>
+      <li>All of the product images a <em>fixed width of 200px</em> (they were variable before).</li>
+    </ul>
+    <div class="centered-img">
+      <a target="_blank" rel="noopener noreferrer" href="imgs/A.png">
+        <img
+          alt="Screenshot of version A of the cactus website"
+          src="imgs/A.png"
+          style="width: auto">
+      </a>
+    </div>
+    <h3 id="b">B</h3>
+    <p>Notable changes:</p>
+    <ul>
+      <li>All of the product images a <em>fixed width and height of 200px</em>. Because not all of the pictures were
+        square, I used some CSS styling to automatically center and crop the images.</li>
+      <li>The count of how many of each product was in the cart was included in the &quot;Add to Cart&quot; button next
+        to the product images.</li>
+    </ul>
+    <div class="centered-img">
+      <a target="_blank" rel="noopener noreferrer" href="imgs/B.png">
+        <img
+          alt="Screenshot of version B of the cactus website"
+          src="imgs/B.png"
+          style="width: auto">
+      </a>
+    </div>
+    <h3 id="c-the-checkout-page-">C (the checkout page)</h3>
+    <p>This page showed the total cost of the contents of a user&#39;s shopping cart and was reachable from both A and
+      B. This page was identical for all users, and it was used to calculate the &quot;return rate&quot; statistic,
+      which I will describe in a later section.</p>
+      <div class="centered-img">
+        <a target="_blank" rel="noopener noreferrer" href="imgs/C.png">
+          <img
+            alt="Screenshot of page C of the cactus website"
+            src="imgs/C.png"
+            style="width: auto">
+        </a>
+      </div>
+    <h3 id="delivery">Delivery</h3>
+    <p>The <a href="https://lit-woodland-69787.herokuapp.com">test website</a> hosting both versions of this website ran
+      on <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> and randomly showed visitors either A or B
+      (50/50 split) after assigning each visitor a unique id (stored as a cookie inthe browser).</p>
+    <p>The <a href="https://lit-woodland-69787.herokuapp.com">test website</a> was served from a <a
+        href="https://www.heroku.com">Heroku</a> instance.</p>
+    <p>Here&#39;s a <a href="https://lit-woodland-69787.herokuapp.com">link to the testing</a> website again.</p>
+    <h2 id="metrics-and-hypotheses">Metrics and Hypotheses</h2>
+    <p>There were 2 main metrics I wanted collect:</p>
+    <ol>
+      <li><strong>Time to Completion</strong>: the amount of time between when a user first loads a page and when the
+        user is finished using the page (finished the task of adding $150 worth of merchandise)</li>
+      <li><strong>Return Rate</strong>: the rate at which users returned from page C to either page A or page B
+        (returned from the shopping cart page to the storefront page)</li>
+    </ol>
+    <h3 id="time-to-completion">Time to Completion</h3>
+    <p><strong>Null Hypothesis</strong>: The average time to completion for page B will be greater than or equal to that
+      of page A.</p>
+    <p><strong>Alternative Hypothesis</strong>: The average time to completion for page B will be less than that of page
+      A because the more fixed sizes of the images mean that all &quot;Add to Cart&quot; buttons are more aligned with
+      each other and easier to click.</p>
+    <h3 id="return-rate">Return Rate</h3>
+    <p><strong>Null Hypothesis</strong>: The return rate of page A will not differ from the return rate of page B.</p>
+    <p><strong>Alternative Hypothesis</strong>: The return rate of page A will be different from the return rate of page
+      B because the &quot;Add to Cart buttons&quot; on page B makes the number of each product in the cart clearer to
+      users.</p>
+    <h2 id="data-collection">Data Collection</h2>
+    <p>Most of my data was collected through the students of Brown University&#39;s <a
+        href="http://cs.brown.edu/courses/csci1300/">CSCI 1300 (UIUX) course</a>. I submitted the link to my testing
+      website to a pool of links from other students, and we accessed each other&#39;s websites with the goal of
+      <strong>adding $150 worth of merchandise to our carts</strong>.</p>
+    <p>Every time a user loaded and interacted with the website/webpage, requests were sent to the flask backend and
+      logged for later perusal.</p>
+    <p>Here is an example of a filtered log capturing usage data:</p>
+    <pre><code>2020<span class="hljs-selector-tag">-10-21T13</span><span class="hljs-selector-pseudo">:08</span><span class="hljs-selector-pseudo">:47.884934+00</span><span class="hljs-selector-pseudo">:00</span> <span class="hljs-selector-tag">app</span><span class="hljs-selector-attr">[web.1]</span>: <span class="hljs-selector-tag">AB_TESTING</span>: <span class="hljs-selector-tag">B</span> 1603285727856 0 0 <span class="hljs-selector-tag">ipfdms</span>
+2020<span class="hljs-selector-tag">-10-21T13</span><span class="hljs-selector-pseudo">:08</span><span class="hljs-selector-pseudo">:49.601135+00</span><span class="hljs-selector-pseudo">:00</span> <span class="hljs-selector-tag">app</span><span class="hljs-selector-attr">[web.1]</span>: <span class="hljs-selector-tag">AB_TESTING</span>: <span class="hljs-selector-tag">B</span> 1603285727856 1603285729581 <span class="hljs-selector-tag">mp4</span> <span class="hljs-selector-tag">ipfdms</span>
+2020<span class="hljs-selector-tag">-10-21T13</span><span class="hljs-selector-pseudo">:08</span><span class="hljs-selector-pseudo">:49.756322+00</span><span class="hljs-selector-pseudo">:00</span> <span class="hljs-selector-tag">app</span><span class="hljs-selector-attr">[web.1]</span>: <span class="hljs-selector-tag">AB_TESTING</span>: <span class="hljs-selector-tag">B</span> 1603285727856 1603285729738 <span class="hljs-selector-tag">mp4</span> <span class="hljs-selector-tag">ipfdms</span>
+2020<span class="hljs-selector-tag">-10-21T13</span><span class="hljs-selector-pseudo">:08</span><span class="hljs-selector-pseudo">:49.937108+00</span><span class="hljs-selector-pseudo">:00</span> <span class="hljs-selector-tag">app</span><span class="hljs-selector-attr">[web.1]</span>: <span class="hljs-selector-tag">AB_TESTING</span>: <span class="hljs-selector-tag">B</span> 1603285727856 1603285729920 <span class="hljs-selector-tag">mp4</span> <span class="hljs-selector-tag">ipfdms</span>
+2020<span class="hljs-selector-tag">-10-21T13</span><span class="hljs-selector-pseudo">:08</span><span class="hljs-selector-pseudo">:50.126667+00</span><span class="hljs-selector-pseudo">:00</span> <span class="hljs-selector-tag">app</span><span class="hljs-selector-attr">[web.1]</span>: <span class="hljs-selector-tag">AB_TESTING</span>: <span class="hljs-selector-tag">B</span> 1603285727856 1603285730103 <span class="hljs-selector-tag">mp4</span> <span class="hljs-selector-tag">ipfdms</span>
+2020<span class="hljs-selector-tag">-10-21T13</span><span class="hljs-selector-pseudo">:08</span><span class="hljs-selector-pseudo">:50.452942+00</span><span class="hljs-selector-pseudo">:00</span> <span class="hljs-selector-tag">app</span><span class="hljs-selector-attr">[web.1]</span>: <span class="hljs-selector-tag">AB_TESTING</span>: <span class="hljs-selector-tag">B</span> 1603285727856 1603285730437 <span class="hljs-selector-tag">mp4</span> <span class="hljs-selector-tag">ipfdms</span>
+2020<span class="hljs-selector-tag">-10-21T13</span><span class="hljs-selector-pseudo">:08</span><span class="hljs-selector-pseudo">:51.494703+00</span><span class="hljs-selector-pseudo">:00</span> <span class="hljs-selector-tag">app</span><span class="hljs-selector-attr">[web.1]</span>: <span class="hljs-selector-tag">AB_TESTING</span>: <span class="hljs-selector-tag">C</span> 1603285731476 0 0 <span class="hljs-selector-tag">ipfdms</span>
+</code></pre>
+    <p>Each line represents a separate user action. The overall format is (taken from the project handout):</p>
+    <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">timestamp</span>&gt;</span> AB_TESTING <span class="hljs-tag">&lt;<span class="hljs-name">ver.</span> <span class="hljs-attr">a</span>/<span class="hljs-attr">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">page</span> <span class="hljs-attr">load</span> <span class="hljs-attr">time</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">click</span> <span class="hljs-attr">time</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">of</span> <span class="hljs-attr">clicked</span> <span class="hljs-attr">element</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">sessionID</span>&gt;</span>
+</code></pre>
+    <h3 id="metric-calculations">Metric Calculations</h3>
+    <p>Here is how I calculated the 2 main metrics that I was trying collect:</p>
+    <ol>
+      <li><strong>Time to Completion</strong>: the amount of time between when a user first loads a page and when the
+        user is finished using the page (finished the task of adding $150 worth of merchandise)<ul>
+          <li>Calculated by taking the difference between the last and first timestamps recorded under a user.</li>
+        </ul>
+      </li>
+      <li><strong>Return Rate</strong>: the rate at which users returned from page C to either page A or page B
+        (returned from the shopping cart page to the storefront page)<ul>
+          <li>Calculated by counting how many users returned from page C to a pages A or B, and how many didn&#39;t.
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h3 id="limitations-and-outliers">Limitations and Outliers</h3>
+    <p>Because of Heroku&#39;s log length limit, I could only collect useful data points from 30 unique users.</p>
+    <p>Additionally, I discarded data that showed users:</p>
+    <ul>
+      <li>doing nothing after loading the page</li>
+      <li>took excessive amounts of time on the webpage (1 or 2 orders of magnitude greater than the average/median);
+        this applied to 2 unique users</li>
+    </ul>
+    <h2 id="data-analysis-significance-tests-">Data Analysis (Significance Tests)</h2>
+    <p>I will be performing significance tests for both of my metrics at a <strong>signficance level of 0.05</strong>.
+    </p>
+    <p>Using <a href="https://github.com/CaoRuiming/cs1300-ab-scripts">scripts that I wrote</a> to calculate p-values
+      for 2-sample t tests and chi<sup>2</sup> tests, I fed in my data and found the following results.</p>
+    <h3 id="time-to-completion">Time to Completion</h3>
+    <p>Since this metric was about the difference between 2 means, I used an independent samples t-test.</p>
+    <p>My p-value was <strong>0.08276</strong></p>
+    <p>Since <code>0.08276 &gt; 0.05</code>, I failed to reject my null hypothesis that &quot;the average time to
+      completion for page B will be greater than or equal to that of page A&quot;.</p>
+    <h3 id="return-rate">Return Rate</h3>
+    <p>Since this metric was about categorical data (return vs no return), I used a chi<sup>2</sup> test.</p>
+    <p>My p-value was <strong>0.6117</strong></p>
+    <p>Since <code>0.6117 &gt; 0.05</code>, I failed to reject my null hypothesis that &quot;the return rate of page A
+      will not differ from the return rate of page B&quot;.</p>
+    <h2 id="conclusions-takeaways">Conclusions &amp; Takeaways</h2>
+    <ul>
+      <li>The tests for both of my metrics were not conclusive. I feel that is probabaly because:<ul>
+          <li>my changes between A and B were not noticeable enough, and</li>
+          <li>my overall lack of data (especially for page A). </li>
+        </ul>
+      </li>
+    </ul>
+    <p>To get more conclusive results next time, I could try more drastic layout changes and try to get a larger set of
+      test data (and make sure that the split between A and B is about even).</p>
+    <h2 id="infographic-tl-dr-">Infographic (tl;dr)</h2>
+    <div class="infographic-wrapper">
+      <a target="_blank" rel="noopener noreferrer" href="imgs/infographic.png">
+        <img
+          alt="A/B Testing Infographic"
+          src="imgs/infographic.png">
+      </a>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../../jquery-3.5.1.slim.min.js"></script>
+  <script src="../../bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

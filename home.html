@@ -2,13 +2,80 @@
 
 <html>
   <head>
-    <title>INSERT TITLE HERE!</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="index.css">
-    <!-- TODO: add additional links here! e.g. fonts, icons, more stylesheets, etc. -->
     <meta content="width=device-width, initial-scale=1" name="viewport" />
   </head>
 
-  <body>
-    <!-- TODO: put your HTML code here! -->
+  <body id="home-page">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbar-content">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume_placeholder.pdf">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1><span class="redacted">name_redacted</span>'s Portfolio</h1>
+      <section id="about">
+        <h2>About Me</h2>
+        <p>Hi! I'm <span class="redacted">name_redacted</span>, a 4th year computer science student at Brown University.</p>
+        <p><span class="highlight">I am not a designer!</span></p>
+        <p>Most of my industry experience has been working with the "backend" of the "frontend", i.e. frontent logic and state management through frameworks like React.js and Angular, but I've also wanted to take a deeper dive on what it actually means to design the "frontend" of the "frontend".</p>
+        <p>Join me in my journey into the world of user interfaces and user experience through the following 4 projects developed over the course of <a target="_blank" rel="noopener noreferrer" href="http://cs.brown.edu/courses/csci1300/#schedule">CSCI 1300</a>, a UI/UX course offered at Brown University.</p>
+        <p>My goal is not to create the prettiest interfaces out there, but to build things that are <span class="highlight">functional, accessible, clean, and pleasant enough to the eye</span>.</p>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <div id="project-cards">
+          <a href="projects/development">
+            <div class="project-card" id="card-development">
+              <h3>React.js Development</h3>
+            </div>
+          </a>
+          <a href="projects/iterative_design">
+            <div class="project-card" id="card-iterative">
+              <h3>Iterative Design</h3>
+            </div>
+          </a>
+          <a href="projects/ab_testing">
+            <div class="project-card" id="card-ab">
+              <h3>A/B Testing</h3>
+            </div>
+          </a>
+          <a href="projects/redesign">
+            <div class="project-card" id="card-redesign">
+              <h3>Responsive Website Redesign</h3>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact/Social Media</h2>
+        <p>Reach out to me through <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/">LinkedIn</a>!</p>
+        <p>Also check out my other work on <a target="_blank" rel="noopener noreferrer" href="https://github.com/">GitHub</a>!</p>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
   </body>
 </html>
