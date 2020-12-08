@@ -22,6 +22,9 @@
       <div class="collapse navbar-collapse" id="navbar-content">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
+            <a class="nav-link" href="../../home.html">Home</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="../../home.html#about">About</a>
           </li>
           <li class="nav-item">
@@ -39,9 +42,17 @@
   </header>
   <main>
     <h1 id="a-b-testing">A/B Testing</h1>
-    <p>The goal of this project was to serve two webpages with slightly different stylings and determine whether the
-      changes impacted user interactions using statistical methods such as 2-sample t tests and chi<sup>2</sup> tests.
-    </p>
+    <p>The goal of this project was to serve two webpages (A and B) with slightly different stylings and determine whether the changes impacted user interactions using statistical methods such as 2-sample t tests and chi<sup>2</sup> tests. >A/B testing is particularly practical because it enables us to justify design changes in a quantitative way.</p>
+    <p>This project involved making 2 slightly different versions of a mock store page, collecting user behavior data, and performing statistical analysis to determine if one version of the page was better than the other.</p>
+    <h2>Too Long; Don't Want to Read</h2>
+    <p>For impatient readers, here were my key takeaways from this project.</p>
+    <ul>
+      <li>Unless there are a lot of users (definitely more than 30) whom we could collect data from, <span class="highlight">only relatively large changes between A and B will see statistically different behavior</span>.</li>
+      <li>Random sampling/routing of users between A and B can provide <span class="highlight">undesirable results for small sample sizes</span> (I had vastly more data points for one page than the other).</li>
+      <li>Understanding what each statistical test tests for is crucial. It can be easy to <span class="highlight">misuse a test and invalidate all results</span>.</li>
+    </ul>
+    <p>Now let&#39;s get to the nitty gritty details of this project!</p>
+
     <h2 id="setup">Setup</h2>
     <p>The first step of of this project was to create a webpage with 2 different versions to show to users. The
       original website was a simple storefront page that allowed users to add various cacti products to their carts.</p>
@@ -156,7 +167,7 @@
         this applied to 2 unique users</li>
     </ul>
     <h2 id="data-analysis-significance-tests-">Data Analysis (Significance Tests)</h2>
-    <p>I will be performing significance tests for both of my metrics at a <strong>signficance level of 0.05</strong>.
+    <p>I performed significance tests for both of my metrics at a <span class="highlight">signficance level of 0.05</span>.
     </p>
     <p>Using <a href="https://github.com/CaoRuiming/cs1300-ab-scripts">scripts that I wrote</a> to calculate p-values
       for 2-sample t tests and chi<sup>2</sup> tests, I fed in my data and found the following results.</p>

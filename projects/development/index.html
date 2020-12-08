@@ -22,6 +22,9 @@
       <div class="collapse navbar-collapse" id="navbar-content">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
+            <a class="nav-link" href="../../home.html">Home</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="../../home.html#about">About</a>
           </li>
           <li class="nav-item">
@@ -130,7 +133,7 @@ const <span class="hljs-string">[sortBy, setSortBy]</span> = useState(SORT.DEFAU
 const <span class="hljs-string">[courseGalleryItems, setCourseGalleryItems]</span> = useState(ITEMS);
 const <span class="hljs-string">[cartGalleryItems, setCartGalleryItems]</span> = useState(<span class="hljs-string">[]</span>);
 </code></pre>
-    <p>(Syntax highlighting is powered by <a href="https://cab.brown.edu">Prism</a>.)</p>
+    <p>(Syntax highlighting is powered by <a href="https://prismjs.com/">Prism</a>.)</p>
     <p><code>App</code> only passes the necessary values and functions to its child components:</p>
     <ul>
       <li><code>ViewOptions</code> receives the values and setters for both filters and sortBy as props from
@@ -182,7 +185,7 @@ useEffect(() =&gt; {
   setCourseGalleryItems,
 ]);
 </code></pre>
-    <p>(Syntax highlighting is powered by <a href="https://cab.brown.edu">Prism</a>.)</p>
+    <p>(Syntax highlighting is powered by <a href="https://prismjs.com/">Prism</a>.)</p>
     <h4 id="-gallery-course-selection-"><code>Gallery</code> (Course Selection)</h4>
     <p>When the user clicks on the add button for any course card, it triggers a callback function that appends that
       course item to cartGalleryItems in <code>App</code>, which then is sent to <code>Gallery</code> (Cart Selection)
@@ -192,6 +195,12 @@ useEffect(() =&gt; {
       removes that course item from cartGalleryItems in <code>App</code>, which is sent back to <code>Gallery</code>
       (Cart Selection) to update the items displayed in the cart.</p>
     <h2 id="conclusion">Conclusion</h2>
+    <p>Here were my key takeaways from this project.</p>
+    <ul>
+      <li><span class="highlight">React.js Hooks are really nice</span> for writing concise code when compared to class components.</li>
+      <li>Reducing <span class="highlight">unnecessary hierarchy</span> in components really helps with code readability and conciseness.</li>
+      <li><span class="highlight">Did I mention that React.js is awesome?</span></li>
+    </ul>
     <p>This project overall was fun exercise in concise and descriptive React.js development. Although the scope of the
       application&#39;s current form is rather limited in terms of content and filtering/sorting, the structure of this
       project should make future extensions or spinoffs easy to do.</p>

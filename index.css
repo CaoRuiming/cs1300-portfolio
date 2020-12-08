@@ -25,7 +25,7 @@ body {
 }
 
 main {
-    padding-top: 80px;
+    padding-top: 100px;
     padding-bottom: 80px;
     max-width: 1000px;
     width: 95%;
@@ -64,7 +64,8 @@ main h1 {
     font-family: Garamond, 'Hoefler Text', 'Times New Roman', Times, serif;
 	font-size: 3.5em;
 	font-weight: normal;
-	font-style: normal;
+    font-style: normal;
+    margin-bottom: 50px;
 }
 @media (max-width: 768px) {
     main h1 {
@@ -172,7 +173,7 @@ span.redacted {
 }
 .centered-img img {
     border: 2px inset hsl(231, 100%, 42%);
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     max-width: 900px;
     max-height: 600px;
@@ -222,6 +223,7 @@ span.redacted {
 }
 .project-card {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     justify-content: center;
     align-items: center;
@@ -229,6 +231,7 @@ span.redacted {
     width: 400px;
     height: 400px;
     margin: 20px;
+    padding: 20px;
 }
 .project-card::before {
     content: "";
@@ -250,4 +253,22 @@ span.redacted {
     margin: 0;
     color: var(--black);
     font-size: 2em;
+}
+.project-card p {
+    margin: 0;
+    margin-top: 20px;
+    color: var(--black);
+    font-size: 1em;
+}
+
+
+.annotations img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.annotations .row {
+    margin-top: 30px;
+}
+.annotations {
+    padding-bottom: 30px;
 }
